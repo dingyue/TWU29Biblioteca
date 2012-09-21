@@ -1,5 +1,3 @@
-package Test;
-
 import org.mockito.Mock;
 import org.junit.Test;
 

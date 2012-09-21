@@ -23,7 +23,7 @@ public class ReserveABookOption extends Option {
     }
 
     public static boolean isBookExist(int bookNumber) {
-        return bookNumber > 0 && bookNumber <= BookList.getBookList().size();
+        return bookNumber > 0 && bookNumber <= BookList.getBooks().size();
     }
 
     private void reserveTheBookSelected(int bookNumber) {
@@ -34,7 +34,7 @@ public class ReserveABookOption extends Option {
     }
 
     private int getInputCommand(Console console) {
-        return console.getNextInt(INPUT_THE_BOOK_ID_WHEN_RESERVE + "from 1 to " + BookList.getBookList().size());
+        return console.getNextInt(INPUT_THE_BOOK_ID_WHEN_RESERVE + "from 1 to " + BookList.getBooks().size());
     }
 
     @Override

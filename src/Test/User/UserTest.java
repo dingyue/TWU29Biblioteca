@@ -1,4 +1,4 @@
-package Test.User;
+package User;
 
 import Main.User.User;
 import org.junit.Test;

@@ -1,4 +1,4 @@
-package Test.Option;
+package Option;
 
 import Main.Option.*;
 import org.junit.Test;

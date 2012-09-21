@@ -1,4 +1,4 @@
-package Test.Option;
+package Option;
 
 import Main.Option.ReserveABookOption;
 import org.junit.Test;

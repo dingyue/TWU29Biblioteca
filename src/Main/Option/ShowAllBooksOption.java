@@ -11,7 +11,7 @@ public class ShowAllBooksOption extends Option{
 
     public void showAllBooks(){
         int bookId = 1;
-        for(Book book : BookList.getBookList()) {
+        for(Book book : BookList.getBooks()) {
 
             ColorOutput.println("<" + bookId +">" + ":" +book.getName(),Color.RED,Color.BLACK);
             bookId++;

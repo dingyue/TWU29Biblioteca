@@ -6,7 +6,7 @@ public class Run {
 
     public static final String WELCOME_MESSAGE = "Welcome to Bangalore Public Library System!";
 
-    private static BibliotecaController biblioteca;
+    public static BibliotecaController biblioteca;
 
     static {
         biblioteca = new BibliotecaController();

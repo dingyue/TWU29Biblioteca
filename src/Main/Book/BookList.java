@@ -6,18 +6,18 @@ import java.util.List;
 public class BookList {
 
 
-    private static List<Book> bookList;
+    public static List<Book> books;
 
-    private BookList() {
-        bookList = new ArrayList<Book>();
-        bookList.add(new Book(1, "java"));
-        bookList.add(new Book(2, "c#"));
-        bookList.add(new Book(3, "ruby"));
-        bookList.add(new Book(4, "python"));
+    public BookList() {
+        books = new ArrayList<Book>();
+        books.add(new Book(1, "java"));
+        books.add(new Book(2, "c#"));
+        books.add(new Book(3, "ruby"));
+        books.add(new Book(4, "python"));
     }
 
-    public static List<Book> getBookList() {
-        return new BookList().bookList;
+    public static List<Book> getBooks() {
+        return new BookList().books;
     }
 
 }

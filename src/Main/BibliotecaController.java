@@ -7,7 +7,7 @@ import java.awt.*;
 
 public class BibliotecaController {
     private Option option;
-    User user = new User(null, null);
+    public User user = new User(null, null);
 
     void bibliotecaStart() {
         showAllMenuOption();
@@ -24,20 +24,28 @@ public class BibliotecaController {
         ColorOutput.println("2: RESERVE_A_BOOK", Color.YELLOW, Color.BLACK);
         ColorOutput.println("3: CHECK_LIBRARY_NUMBER", Color.YELLOW, Color.BLACK);
         ColorOutput.println("4: LOGOUT", Color.YELLOW, Color.BLACK);
+        ColorOutput.println("5: SHOW_All_MOVIES", Color.YELLOW, Color.BLACK);
+        ColorOutput.println("6: LOGIN", Color.YELLOW, Color.BLACK);
+
     }
 
     private void createSelectedMenuOption() {
         option = Option.buildOption(getOptionNumber(new Console()));
     }
 
-    int getOptionNumber(Console console) {
+    public int getOptionNumber(Console console) {
         int inputNumber = console.getNextInt("You are able to select a menu option:");
         while (!isValidOption(inputNumber))
             inputNumber = Console.getNextInt("Select a valid option!!");
         return inputNumber;
     }
+
     boolean isValidOption(int inputNumber) {
-        return inputNumber > 0 && inputNumber <= Option.LOGOUT;
+        return inputNumber > 0 && inputNumber <= Option.LOG_IN;
     }
+//    public void userLogin(User user){
+//        this.user= user;
+//    }
+
 }
 
