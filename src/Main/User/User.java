@@ -9,13 +9,51 @@ import java.util.List;
 public class User {
     protected String libraryNumber;
     protected String password;
+    protected String email;
+    protected String phoneNumber;
+    private  boolean userLoginStatus;
+
+    public boolean isUserLoginStatus() {
+        return userLoginStatus;
+    }
+
+    public void setUserLoginStatus(boolean userLoginStatus) {
+        this.userLoginStatus = userLoginStatus;
+    }
+
     private List<Book> collectionList = new ArrayList<Book>();
 
 
-    public User(String libraryNumber, String password) {
+    public void setLibraryNumber(String libraryNumber) {
         this.libraryNumber = libraryNumber;
+    }
+
+    public void setPassword(String password) {
         this.password = password;
     }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public User(String libraryNumber, String password, String email, String phoneNumber, boolean userLoginStatus) {
+        this.libraryNumber = libraryNumber;
+        this.password = password;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.userLoginStatus = userLoginStatus;
+    }
+
+//    public User(String libraryNumber, String password, boolean userLoginStatus) {
+//        this.libraryNumber = libraryNumber;
+//        this.password = password;
+//        this.userLoginStatus = userLoginStatus;
+//
+//    }
 
     public String getLibraryNumber() {
         return libraryNumber;
@@ -50,4 +88,11 @@ public class User {
         return result;
     }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
 }

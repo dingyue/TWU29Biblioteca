@@ -3,12 +3,12 @@ package Main.Option;
 import Main.User.User;
 
 public abstract class Option {
-    public static final int SHOW_All_BOOKS = 1;
-    public static final int RESERVE_A_BOOK = 2;
-    public static final int CHECK_LIBRARY_NUMBER = 3;
-    public static final int LOGOUT = 4;
+    public static final int LOGIN = 1;
+    public static final int SHOW_All_BOOKS = 2;
+    public static final int RESERVE_A_BOOK = 3;
+    public static final int CHECK_LIBRARY_NUMBER = 4;
     public static final int SHOW_All_MOVIES = 5;
-    public static final int LOG_IN = 6;
+    public static final int LOGOUT = 6;
 
 
     public static Option buildOption(int optionNumber) {
@@ -21,7 +21,7 @@ public abstract class Option {
                 return new CheckLibraryNumberOption();
             case SHOW_All_MOVIES:
                 return new ShowAllMoviesOption();
-            case LOG_IN:
+            case LOGIN:
                 return new LoginOption();
             case LOGOUT:
                 return new LogoutOption();

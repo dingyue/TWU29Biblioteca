@@ -7,7 +7,7 @@ import java.awt.*;
 
 public class BibliotecaController {
     private Option option;
-    public User user = new User(null, null);
+    public User user = new User(null, null, null, null, false);
 
     void bibliotecaStart() {
         showAllMenuOption();
@@ -15,21 +15,21 @@ public class BibliotecaController {
         runSelectedMenuOption();
     }
 
-    void runSelectedMenuOption() {
+    public void runSelectedMenuOption() {
         option.execute(user);
     }
 
     private static void showAllMenuOption() {
-        ColorOutput.println("1: SHOW_All_BOOKS", Color.YELLOW, Color.BLACK);
-        ColorOutput.println("2: RESERVE_A_BOOK", Color.YELLOW, Color.BLACK);
-        ColorOutput.println("3: CHECK_LIBRARY_NUMBER", Color.YELLOW, Color.BLACK);
-        ColorOutput.println("4: LOGOUT", Color.YELLOW, Color.BLACK);
+        ColorOutput.println("1: LOGIN", Color.YELLOW, Color.BLACK);
+        ColorOutput.println("2: SHOW_All_BOOKS", Color.YELLOW, Color.BLACK);
+        ColorOutput.println("3: RESERVE_A_BOOK", Color.YELLOW, Color.BLACK);
+        ColorOutput.println("4: CHECK_LIBRARY_NUMBER", Color.YELLOW, Color.BLACK);
         ColorOutput.println("5: SHOW_All_MOVIES", Color.YELLOW, Color.BLACK);
-        ColorOutput.println("6: LOGIN", Color.YELLOW, Color.BLACK);
+        ColorOutput.println("6: LOGOUT", Color.YELLOW, Color.BLACK);
 
     }
 
-    private void createSelectedMenuOption() {
+    public void createSelectedMenuOption() {
         option = Option.buildOption(getOptionNumber(new Console()));
     }
 
@@ -40,12 +40,10 @@ public class BibliotecaController {
         return inputNumber;
     }
 
+    //when input "-""+" something like this ,it has a inner exception ,I will solve it later
     boolean isValidOption(int inputNumber) {
-        return inputNumber > 0 && inputNumber <= Option.LOG_IN;
+        return inputNumber > 0 && inputNumber <= Option.LOGOUT;
     }
-//    public void userLogin(User user){
-//        this.user= user;
-//    }
 
 }
 

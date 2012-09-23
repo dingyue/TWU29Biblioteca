@@ -13,7 +13,7 @@ public class ShowAllMoviesOption extends Option{
         int movieId = 1;
         for(Movie movie : MovieList.getMovieList()) {
 
-            ColorOutput.println("<" + movieId +">" + ":" +movie.getName()+movie.getRating(),Color.RED,Color.BLACK);
+            ColorOutput.println("<" + movieId +">" + ":" +movie.getName()+ " "+ movie.getDirector() + " "+ movie.getRating(),Color.RED,Color.BLACK);
             movieId++;
         }
     }

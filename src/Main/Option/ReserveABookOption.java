@@ -9,9 +9,11 @@ import Main.User.User;
 import java.awt.*;
 
 public class ReserveABookOption extends Option {
-    public static final String INPUT_THE_BOOK_ID_WHEN_RESERVE = "Input the book number you want to reserve:";
-    public static final String BOOK_IS_NOT_AVAILABLE_INFO = "Sorry we don't have that book yet.";
-    public static final String RESERVE_BOOK_SUCCESS_INFO = "Thank You! Enjoy the book.";
+    private static final String INPUT_THE_BOOK_ID_WHEN_RESERVE = "Input the book number you want to reserve:";
+    private static final String BOOK_IS_NOT_AVAILABLE_INFO = "Sorry we don't have that book yet.";
+    private static final String RESERVE_BOOK_SUCCESS_INFO = "Thank You! Enjoy the book.";
+    private static final String NOT_LOG_IN_INFO = "You can reserve book only when you login in!Login first pls!";
+
 
     private void reserveBook() {
         int bookNumber = getInputCommand(new Console());
@@ -22,12 +24,13 @@ public class ReserveABookOption extends Option {
         }
     }
 
-    public static boolean isBookExist(int bookNumber) {
+    //one book should be reserved only by one person,but,the requirement say that
+    private static boolean isBookExist(int bookNumber) {
         return bookNumber > 0 && bookNumber <= BookList.getBooks().size();
     }
 
     private void reserveTheBookSelected(int bookNumber) {
-        User user = new User(null,null);
+        User user = new User(null,null,null,null,false);
         user.addBookToCollection(bookNumber);
         ColorOutput.println(RESERVE_BOOK_SUCCESS_INFO, Color.GREEN, Color.BLACK);
 
@@ -39,7 +42,12 @@ public class ReserveABookOption extends Option {
 
     @Override
     public void execute(User currentUser) {
-        reserveBook();
+        if (!currentUser.isUserLoginStatus()) {
+            ColorOutput.println(NOT_LOG_IN_INFO, Color.RED, Color.BLACK);
+        } else {
+            reserveBook();
+        }
+
     }
 
 

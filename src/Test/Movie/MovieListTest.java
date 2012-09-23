@@ -15,17 +15,5 @@ public class MovieListTest {
         MovieList movieList = new MovieList();
         assertThat(movieList.movies, hasItem(movie));
     }
-
-//    @Test
-//    public void should_return_all_movies_info() {
-//        MovieList.initMovieList();
-//        String allMovies = MovieList.getAllMovies();
-//        assertThat(allMovies, containsString("Movie{" +
-//                "name='" + "movie2" + '\'' +
-//                //", year='" + year + '\'' +
-//                ", director='" + "name2" + '\'' +
-//                ", rating='" + "1" + '\'' +
-//                '}'));
-//    }
 }
 

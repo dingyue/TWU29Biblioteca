@@ -6,17 +6,10 @@ import java.util.List;
 public class UserList {
     public static List<User> users;
 
-//    public static void initUserList() {
-//        users = new ArrayList<User>();
-//        users.add(new User("111-1111","ding yue"));
-//        users.add(new User("111-1112","zhang yaxuan"));
-//    }
-
-
     public UserList() {
         users = new ArrayList<User>();
-        users.add(new User("111-1111","dingyue"));
-        users.add(new User("111-1112","zhangyaxuan"));
+        users.add(new User("111-1111","dingyue","yding@thoughtworks.com","13991871507",true));
+        users.add(new User("111-1112","zhangyaxuan","yaxuan@163.com","15923571830",true));
     }
 
     public static List<User> getUserList() {

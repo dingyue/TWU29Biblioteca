@@ -10,7 +10,7 @@ public class UserTest {
 
     @Test
     public void should_return_accurate_userinfo() throws Exception {
-        User user = new User("DY1987","123456");
+        User user = new User("DY1987","123456","yding@thoughtworks.com","13991871507",true);
         assertThat(user.getLibraryNumber(),is("DY1987"));
         assertThat(user.getPassword(),is("123456"));
     }

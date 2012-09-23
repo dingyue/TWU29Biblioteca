@@ -3,10 +3,16 @@ package Main.Book;
 public class Book {
     private int id;
     private String name;
+    //private int status;
+
+//    public void setStatus(int status) {
+//        this.status = status;
+//    }
 
     public Book(int id, String name) {
         this.id = id;
         this.name = name;
+//        setStatus(0);
     }
 
     public int getId() {
