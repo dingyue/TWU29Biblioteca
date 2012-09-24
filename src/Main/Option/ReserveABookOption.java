@@ -47,7 +47,6 @@ public class ReserveABookOption extends Option {
         } else {
             reserveBook();
         }
-
     }
 
 

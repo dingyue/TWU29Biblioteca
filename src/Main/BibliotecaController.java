@@ -26,7 +26,6 @@ public class BibliotecaController {
         ColorOutput.println("4: CHECK_LIBRARY_NUMBER", Color.YELLOW, Color.BLACK);
         ColorOutput.println("5: SHOW_All_MOVIES", Color.YELLOW, Color.BLACK);
         ColorOutput.println("6: LOGOUT", Color.YELLOW, Color.BLACK);
-
     }
 
     public void createSelectedMenuOption() {

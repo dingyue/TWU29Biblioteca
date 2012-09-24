@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="biblioteca" default="run" basedir=".">
+
+
+    <property name="src" value="src"/>
+
+    <property name="test" value="test"/>
+    <property name="dest" value="dest"/>
+    <property name="lib" value="lib"/>
+
+    <property name="instrumented.dir" value="dest/instrumented/dir"></property>
+    <property name="classes.dir" value="dest/classes/dir"></property>
+
+    <property name="biblioteca_jar" value="biblioteca.jar"/>
+    <property name="main-class" value="Main.BibliotecaController"/>
+
+    <path id="lib_classpath">
+        <fileset dir="${lib}">
+            <include name="*.jar"/>
+        </fileset>
+    </path>
+
+    <taskdef classpathref="lib_classpath" resource="tasks.properties"/>
+
+    <target name="init">
+        <mkdir dir="${dest}"/>
+        <mkdir dir="${instrumented.dir}"/>
+        <mkdir dir="${classes.dir}"/>
+    </target>
+
+    <target name="compile" depends="init">
+        <javac encoding="utf-8" srcdir="${src}" destdir="${dest}" includeantruntime="false">
+            <classpath refid="lib_classpath"/>
+        </javac>
+
+        <javac encoding="utf-8" srcdir="${test}" destdir="${dest}" includeantruntime="false">
+            <classpath refid="lib_classpath"/>
+        </javac>
+    </target>
+
+    <target name="instrument" depends="compile">
+        <delete file="cobertura.ser"/>
+        <delete dir="${instrumented.dir}"/>
+        <cobertura-instrument todir="${instrumented.dir}">
+            <ignore regex="org.apache.log4j.*"/>
+            <fileset dir="${classes.dir}">
+                <include name="**/*.class"/>
+                <exclude name="**/*Test.class"/>
+            </fileset>
+        </cobertura-instrument>
+    </target>
+
+    <target name="junit" depends="compile">
+
+
+        <junit printsummary="true" fork="yes" dir="${src}" failureProperty="test.failed">
+            <classpath refid="lib_classpath"/>
+
+            <sysproperty key="net.sourceforge.cobertura.datafile"
+                         file="${basedir}/cobertura.ser"/>
+            <classpath>
+                <pathelement path="${dest}"/>
+                <fileset dir="${lib}">
+                    <include name="**/*.jar"/>
+                </fileset>
+            </classpath>
+            <batchtest fork="yes">
+                <fileset dir="${test}">
+                    <include name="**/*Test.java"/>
+                    <exclude name="**/AllTests.java"/>
+                </fileset>
+            </batchtest>
+        </junit>
+
+    </target>
+
+    <target name="build" depends="junit">
+        <jar jarfile="${biblioteca_jar}" basedir="${dest}">
+            <manifest>
+                <attribute name="Main-Class" value="${main-class}"/>
+                <attribute name="Class-Path" value=". lib/enigma-all_en_US.jar lib/enigma-console.jar
+                lib/enigma-i18n.jar lib/enigma-shell.jar lib/junit-4.10.jar"/>
+            </manifest>
+        </jar>
+    </target>
+
+    <target name="run" depends="build">
+        <java fork="true" jar="${biblioteca_jar}"/>
+    </target>
+
+    <target name="clean">
+        <delete dir="${dest}"/>
+        <delete file="${biblioteca_jar}"/>
+    </target>
+
+</project>
