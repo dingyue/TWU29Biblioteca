@@ -1,4 +1,4 @@
-import Main.BibliotecaController;
+import main.BibliotecaController;
 import org.junit.Test;
 
 public class BibliotecaControllerTest {

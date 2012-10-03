@@ -1,7 +1,7 @@
-package Main.User;
+package main.user;
 
-import Main.Book.Book;
-import Main.Book.BookList;
+import main.book.Book;
+import main.book.BookList;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,7 +48,7 @@ public class User {
         this.userLoginStatus = userLoginStatus;
     }
 
-//    public User(String libraryNumber, String password, boolean userLoginStatus) {
+//    public user(String libraryNumber, String password, boolean userLoginStatus) {
 //        this.libraryNumber = libraryNumber;
 //        this.password = password;
 //        this.userLoginStatus = userLoginStatus;

@@ -1,12 +1,13 @@
-package Main.Option;
+package main.option;
 
 
-import Main.Book.BookList;
-import Main.ColorOutput;
-import Main.Console;
-import Main.User.User;
+import main.ColorOutput;
+import main.Console;
+import main.book.BookList;
+import main.user.User;
 
 import java.awt.*;
+import java.io.PrintStream;
 
 public class ReserveABookOption extends Option {
     private static final String INPUT_THE_BOOK_ID_WHEN_RESERVE = "Input the book number you want to reserve:";
@@ -16,7 +17,7 @@ public class ReserveABookOption extends Option {
 
 
     private void reserveBook() {
-        int bookNumber = getInputCommand(new Console());
+        int bookNumber = getInputCommand(new Console(System.in, new PrintStream(System.out)));
         if (!isBookExist(bookNumber)) {
             ColorOutput.println(BOOK_IS_NOT_AVAILABLE_INFO, Color.RED, Color.BLACK);
         } else {
@@ -24,20 +25,23 @@ public class ReserveABookOption extends Option {
         }
     }
 
-    //one book should be reserved only by one person,but,the requirement say that
     private static boolean isBookExist(int bookNumber) {
         return bookNumber > 0 && bookNumber <= BookList.getBooks().size();
     }
 
     private void reserveTheBookSelected(int bookNumber) {
-        User user = new User(null,null,null,null,false);
+        User user = new User(null, null, null, null, false);
         user.addBookToCollection(bookNumber);
         ColorOutput.println(RESERVE_BOOK_SUCCESS_INFO, Color.GREEN, Color.BLACK);
-
     }
 
     private int getInputCommand(Console console) {
         return console.getNextInt(INPUT_THE_BOOK_ID_WHEN_RESERVE + "from 1 to " + BookList.getBooks().size());
+    }
+
+    @Override
+    public boolean shouldExecute(int optNum) {
+        return optNum == RESERVE_A_BOOK;
     }
 
     @Override

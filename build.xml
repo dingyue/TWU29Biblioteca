@@ -12,7 +12,7 @@
     <property name="classes.dir" value="dest/classes/dir"></property>
 
     <property name="biblioteca_jar" value="biblioteca.jar"/>
-    <property name="main-class" value="Main.BibliotecaController"/>
+    <property name="main-class" value="main.BibliotecaController"/>
 
     <path id="lib_classpath">
         <fileset dir="${lib}">
@@ -77,7 +77,7 @@
     <target name="build" depends="junit">
         <jar jarfile="${biblioteca_jar}" basedir="${dest}">
             <manifest>
-                <attribute name="Main-Class" value="${main-class}"/>
+                <attribute name="main-Class" value="${main-class}"/>
                 <attribute name="Class-Path" value=". lib/enigma-all_en_US.jar lib/enigma-console.jar
                 lib/enigma-i18n.jar lib/enigma-shell.jar lib/junit-4.10.jar"/>
             </manifest>

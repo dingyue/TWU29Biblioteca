@@ -1,11 +1,16 @@
-package Main.Option;
+package main.option;
 
-import Main.User.User;
+import main.user.User;
 
 public class LogoutOption extends Option {
 
     @Override
+    public boolean shouldExecute(int optNum) {
+        return optNum == LOGOUT;
+    }
+
+    @Override
     public void execute(User currentUser) {
-        System.exit(-1);
+        System.exit(0);
     }
 }

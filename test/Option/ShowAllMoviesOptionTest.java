@@ -1,7 +1,7 @@
-package Option;
+package option;
 
-import Main.Option.ShowAllMoviesOption;
-import Main.User.User;
+import main.option.ShowAllMoviesOption;
+import main.user.User;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -20,7 +20,7 @@ public class ShowAllMoviesOptionTest {
         MockitoAnnotations.initMocks(this);
     }
 
-    @Test //verify showAllMoviesOption behaviour
+    @Test
     public void should_return_all_movies_from_console() {
         showAllMoviesOption.execute(user);
         verify(showAllMoviesOption).execute(user);

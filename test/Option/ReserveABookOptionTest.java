@@ -1,7 +1,7 @@
-package Option;
+package option;
 
-import Main.Option.ReserveABookOption;
-import Main.User.User;
+import main.option.ReserveABookOption;
+import main.user.User;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;

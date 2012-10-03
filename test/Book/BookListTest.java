@@ -1,7 +1,7 @@
-package Book;
+package book;
 
-import Main.Book.Book;
-import Main.Book.BookList;
+import main.book.Book;
+import main.book.BookList;
 import org.junit.Test;
 
 import java.util.List;

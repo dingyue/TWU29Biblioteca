@@ -1,13 +1,18 @@
-package Main.Option;
+package main.option;
 
-import Main.ColorOutput;
-import Main.User.User;
-import Main.User.UserList;
+import main.ColorOutput;
+import main.user.User;
+import main.user.UserList;
 
 import java.awt.*;
 
 public class CheckLibraryNumberOption extends Option {
     private static final String THE_USER_DOES_NOT_IN_THE_USER_LIST_INFO = "Please talk to Librarian.Thank you.";
+
+    @Override
+    public boolean shouldExecute(int optNum) {
+        return optNum == CHECK_LIBRARY_NUMBER;
+    }
 
     @Override
     public void execute(User currentUser) {

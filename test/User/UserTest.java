@@ -1,6 +1,6 @@
-package User;
+package user;
 
-import Main.User.User;
+import main.user.User;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;

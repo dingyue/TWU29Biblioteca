@@ -1,7 +1,7 @@
-package Movie;
+package movie;
 
-import Main.Movie.Movie;
-import Main.Movie.MovieList;
+import main.movie.Movie;
+import main.movie.MovieList;
 import org.junit.Test;
 
 import static org.junit.Assert.assertThat;

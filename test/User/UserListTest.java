@@ -1,7 +1,7 @@
-package User;
+package user;
 
-import Main.User.User;
-import Main.User.UserList;
+import main.user.User;
+import main.user.UserList;
 import org.junit.Test;
 
 import static org.junit.Assert.assertThat;

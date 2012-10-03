@@ -1,4 +1,4 @@
-package Main.Movie;
+package main.movie;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,10 +6,6 @@ import java.util.List;
 public class MovieList {
     public static List<Movie> movies;
 
-    //    public static void initMovieList() {
-//        movies = new ArrayList<Movie>();
-//        movies.add(new Movie("I'm DingYue", "Ding Yue", "N/A"));
-//    }
     public MovieList() {
         movies = new ArrayList<Movie>();
         movies.add(new Movie("I'm DingYue", "Ding Yue", "N/A"));
@@ -29,17 +25,6 @@ public class MovieList {
         movies.add(new Movie("movie15", "name15", "3"));
 
     }
-
-
-//    public static String getAllMovies() {
-//        //List<Movie> movies = new ArrayList<Movie>();
-//        StringBuffer movieList = new StringBuffer();
-//        for (Movie movie : movies) {
-//            movieList.append(movie.toString() + "\n");
-//        }
-//
-//        return movieList.toString();
-//    }
 
     public static List<Movie> getMovieList() {
         return new MovieList().movies;

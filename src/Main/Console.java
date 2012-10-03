@@ -1,21 +1,32 @@
-package Main;
+package main;
 
+import java.io.InputStream;
+import java.io.PrintStream;
 import java.util.Scanner;
 
 public class Console {
 
-    //used for option number
-    public static int getNextInt(String notifyMessage) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println(notifyMessage);
+    private InputStream is;
+    private Scanner scanner;
+    private PrintStream out;
+
+    public Console(InputStream is, PrintStream out) {
+        this.is = is;
+        this.scanner = new Scanner(is);
+        this.out = out;
+    }
+
+    public int getNextInt(String notifyMessage) {
+        Scanner scanner = new Scanner(is);
+        out.println(notifyMessage);
         return scanner.nextInt();
     }
 
-    //uesd for login library number and password
-    public static String getNextString(String notifyMessage) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println(notifyMessage);
+    public String getNextString(String notifyMessage) {
+        Scanner scanner = new Scanner(is);
+        out.println(notifyMessage);
         return scanner.next();
     }
+
 
 }
